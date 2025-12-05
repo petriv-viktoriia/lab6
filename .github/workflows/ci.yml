@@ -67,7 +67,7 @@ jobs:
         run: ./gradlew test jacocoTestReport --no-daemon
 
       - name: Upload coverage report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: jacoco-html-report
           path: build/reports/jacoco/test/html
@@ -103,7 +103,7 @@ jobs:
         run: ./gradlew bootJar --no-daemon
 
       - name: Upload JAR
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: jar-file
           path: build/libs/*.jar
