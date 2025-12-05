@@ -30,6 +30,9 @@ jobs:
           restore-keys: |
             gradle-${{ runner.os }}-
 
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
       - name: Run Checkstyle
         run: ./gradlew checkstyleMain checkstyleTest --no-daemon
 
@@ -56,6 +59,9 @@ jobs:
           key: gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             gradle-${{ runner.os }}-
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
 
       - name: Run tests and generate coverage
         run: ./gradlew test jacocoTestReport --no-daemon
@@ -89,6 +95,9 @@ jobs:
           key: gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             gradle-${{ runner.os }}-
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
 
       - name: Build JAR
         run: ./gradlew bootJar --no-daemon
