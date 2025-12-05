@@ -80,4 +80,12 @@ public class UserService {
             throw new InvalidUserDataException("Invalid email format");
         }
     }
+
+    public long countUsers() {
+        return userRepository.count();
+    }
+
+    public List<User> getUsersByRole(Role role) {
+        return userRepository.findAllByRole(role);
+    }
 }
